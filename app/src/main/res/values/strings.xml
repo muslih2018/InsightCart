@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">InsightCart</string>
+    <string name="profile">Profile</string>
+    <string name="back">Arrow</string>
+    <string name="Account">syarifdayat119@gmail.com</string>
+    <string name="photo">photo\n</string>
+    <string name="user">Username</string>
+    <string name="email">Email</string>
+    <string name="username">Syarif Hidayat</string>
+    <string name="logout">Logout</string>
+
 </resources>
