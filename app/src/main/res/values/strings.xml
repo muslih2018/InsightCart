@@ -32,4 +32,10 @@
     <string name="emaildummy">Email</string>
     <string name="usernamedummy">Syarif Hidayat</string>
     <string name="logout">Logout</string>
+    <string name="menu">Menu</string>
+    <string name="Transaction">Transaction</string>
+    <string name="Records">Records</string>
+    <string name="Receipt">Receipt</string>
+    <string name="MenuName">Menu Name</string>
+    <string name="Searchyourmenu">Search your menu</string>
 </resources>
