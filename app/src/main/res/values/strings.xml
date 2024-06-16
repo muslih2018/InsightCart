@@ -32,4 +32,20 @@
     <string name="emaildummy">Email</string>
     <string name="usernamedummy">Syarif Hidayat</string>
     <string name="logout">Logout</string>
+     <!-- Inventory menagement placeholder string-->
+    <string name="Menu1">Kopikap</string>
+    <string name="Harga1">Rp.20.000</string>
+    <string name="delete">Delete</string>
+    <string name="image_profile">Image Profile</string>
+    <string name="menu">Menu</string>
+    <string name="search_button">Search Button</string>
+    <string name="harga">Harga</string>
+    <string name="home_button">Home</string>
+    <string name="inventory_icon">Inventory</string>
+    <string name="inventory_logo">Inventory_Icon</string>
+    <string name="home_icon">home_icon\n</string>
+    <string name="cashier">Cashier</string>
+    <string name="logo_menu_cashier">logo_menu_kasir</string>
+    <string name="analysys_icon">analysys_icon</string>
+    <string name="analysis">Analysis</string>
 </resources>
