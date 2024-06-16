@@ -48,6 +48,8 @@
     <string name="logo_menu_cashier">logo_menu_kasir</string>
     <string name="analysys_icon">analysys_icon</string>
     <string name="analysis">Analysis</string>
+    <string name="add_button">add_button\n</string>
+    <string name="delete_button">delete_button\n</string>
     <string name="Transaction">Transaction</string>
     <string name="Records">Records</string>
     <string name="Receipt">Receipt</string>
