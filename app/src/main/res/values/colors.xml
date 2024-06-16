@@ -9,4 +9,10 @@
     <color name="tab_text_color_unselected">#FFFFFF</color> <!-- Contoh warna abu-abu untuk tidak dipilih -->
     <color name="tab_text_color_selected">#3A3376</color>
     <color name="text_color_lightblue">#C7D2FE</color>
+    <color name="Purple1">#3A3376</color>
+    <color name="LightGrey">#777777</color>
+    <color name="Black">#1B232A</color>
+    <color name="White1">#EDEFF3</color>
+    <color name="White2">#F8F3F3</color>
+    <color name="White3">#FFFFFF</color>
 </resources>

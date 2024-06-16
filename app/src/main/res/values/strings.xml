@@ -24,4 +24,12 @@
     <string name="enter_your_username">Enter your username</string>
     <string name="confirm_password">Confirm password</string>
     <string name="confirm_your_password">Confirm your password</string>
+    <string name="profile">Profile</string>
+    <string name="back">Arrow</string>
+    <string name="Account">syarifdayat119@gmail.com</string>
+    <string name="photo">photo\n</string>
+    <string name="user">Username</string>
+    <string name="emaildummy">Email</string>
+    <string name="usernamedummy">Syarif Hidayat</string>
+    <string name="logout">Logout</string>
 </resources>
