@@ -24,7 +24,7 @@ public class InventoryDisplay extends AppCompatActivity {
         addButton = findViewById(R.id.addButton);
 
         menuList = new ArrayList<>();
-        // Contoh data awal
+
         menuList.add(new MenuItem("Kopikap", "Rp 20.000"));
         menuList.add(new MenuItem("Kopikap", "Rp 20.000"));
 
@@ -35,7 +35,7 @@ public class InventoryDisplay extends AppCompatActivity {
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Tambahkan item baru ke menuList dan beri tahu adapter
+
                 menuList.add(new MenuItem("Kopikap", "Rp 20.000"));
                 menuAdapter.notifyItemInserted(menuList.size() - 1);
             }
@@ -44,7 +44,7 @@ public class InventoryDisplay extends AppCompatActivity {
         menuAdapter.setOnItemClickListener(new MenuAdapter.OnItemClickListener() {
             @Override
             public void onDeleteClick(int position) {
-                // Hapus item dari menuList dan beri tahu adapter
+
                 menuList.remove(position);
                 menuAdapter.notifyItemRemoved(position);
             }

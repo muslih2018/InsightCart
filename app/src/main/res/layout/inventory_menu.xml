@@ -73,12 +73,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="276dp"
+        android:layout_marginBottom="96dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/add_button"
         android:src="@drawable/add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-       />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
