@@ -1,0 +1,7 @@
+<!-- selector_bottom_nav_item.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Item in selected state -->
+    <item android:color="#3A3376" android:state_checked="true" />
+    <!-- Item in default state -->
+    <item android:color="#99A2AD" />
+</selector>
