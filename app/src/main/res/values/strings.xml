@@ -67,5 +67,8 @@
     <string name="Satuan_description">Satuan Harga dari menu</string>
     <string name="add_rectangle_button">add_rectangle_button</string>
     <string name="input_action">Input</string>
+    <string name="edit_menu">Edit Menu\n</string>
+    <string name="edit_ingridient">Edit Ingridients</string>
+    <string name="edit_harga_menu">Edit Harga Menu</string>
     <color name="field_menu1">Masukkan Nama Menu</color>
 </resources>

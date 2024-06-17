@@ -32,18 +32,21 @@
             app:srcCompat="@drawable/arrow2" />
 
         <TextView
-            android:id="@+id/Input_Menu_Title_Textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/input_menu"
+            android:id="@+id/Menu"
+            android:layout_width="113dp"
+            android:layout_height="27dp"
+            android:gravity="center"
+            android:text="@string/edit_menu"
             android:textAlignment="center"
             android:textColor="@color/White1"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHorizontal_bias="0.466"
+            app:layout_constraintStart_toEndOf="@+id/Profile_Icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.509" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -54,21 +57,20 @@
         android:layout_height="707dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="81dp"
-        android:id="@+id/content_input_menu">
+        tools:layout_editor_absoluteY="81dp">
 
 
         <TextView
-            android:id="@+id/input_menu"
+            android:id="@+id/edit_menu_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nama_menu"
+            android:text="@string/edit_menu"
             android:textColor="@color/Purple1"
             tools:layout_editor_absoluteX="30dp"
             tools:layout_editor_absoluteY="67dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/field_input_menu"
+            android:id="@+id/field_edit_menu"
             android:layout_width="354dp"
             android:layout_height="62dp"
             android:layout_margin="0dp"
@@ -85,17 +87,17 @@
             tools:layout_editor_absoluteY="93dp" />
 
         <TextView
-            android:id="@+id/ingridient"
+            android:id="@+id/edit_ingridient_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ingridient"
+            android:text="@string/edit_ingridient"
             android:textColor="@color/Purple1"
             tools:layout_editor_absoluteX="30dp"
 
             tools:layout_editor_absoluteY="204dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/field_input_ingridient"
+            android:id="@+id/field_edit_ingridient"
             android:layout_width="165dp"
             android:layout_height="59dp"
             android:layout_margin="0dp"
@@ -113,7 +115,7 @@
             tools:layout_editor_absoluteY="240dp" />
 
         <TextView
-            android:id="@+id/quantities"
+            android:id="@+id/edit_quantities_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/berat"
@@ -123,7 +125,7 @@
             tools:layout_editor_absoluteY="204dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/satuan_field"
+            android:id="@+id/edit_quantities_field"
             android:layout_width="92dp"
             android:layout_height="54dp"
             android:layout_margin="0dp"
@@ -140,7 +142,7 @@
             tools:layout_editor_absoluteY="241dp" />
 
         <ImageButton
-            android:id="@+id/input_add_button"
+            android:id="@+id/add_plus_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="null"
@@ -150,16 +152,16 @@
             tools:layout_editor_absoluteY="240dp" />
 
         <TextView
-            android:id="@+id/price_input_TextView"
+            android:id="@+id/edit_harga_textview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/harga_menu"
+            android:text="@string/edit_harga_menu"
             android:textColor="@color/Purple1"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="339dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/field_harga_menu"
+            android:id="@+id/field_edit_harga_menu"
             android:layout_width="354dp"
             android:layout_height="62dp"
             android:layout_margin="0dp"
