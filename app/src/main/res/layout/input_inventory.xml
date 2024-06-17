@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/Purple1"
+        android:paddingHorizontal="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:contentDescription="@string/back"
+            android:id="@+id/Profile_Icon"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.036"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow2" />
+
+        <TextView
+            android:id="@+id/Menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_menu"
+            android:textAlignment="center"
+            android:textColor="@color/White1"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="412dp"
+        android:layout_height="539dp"
+        tools:layout_editor_absoluteX="-2dp"
+        tools:layout_editor_absoluteY="81dp"
+        tools:ignore="MissingConstraints">
+
+
+        <TextView
+            android:id="@+id/input_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nama_menu"
+            android:textColor="@color/Purple1"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/field_input_menu"
+            android:layout_width="354dp"
+            android:layout_height="62dp"
+            android:layout_margin="0dp"
+            android:autofillHints="password"
+            android:background="@drawable/field_type_radius"
+            android:ems="10"
+            android:hint="@string/field_menu_1"
+            android:inputType="textLongMessage"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="0dp"
+            android:textColor="@color/navi"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="93dp" />
+
+        <TextView
+            android:id="@+id/ingridient"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ingridient"
+            android:textColor="@color/Purple1"
+            tools:layout_editor_absoluteX="30dp"
+
+            tools:layout_editor_absoluteY="204dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/field_input_ingridient"
+            android:layout_width="165dp"
+            android:layout_height="59dp"
+            android:layout_margin="0dp"
+            android:autofillHints="password"
+            android:background="@drawable/field_type_radius"
+            android:drawableEnd="@drawable/arrow_down"
+            android:ems="10"
+            android:hint="@string/field_menu_2"
+            android:inputType="textLongMessage"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="0dp"
+            android:textColor="@color/navi"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="30dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <TextView
+            android:id="@+id/quantities"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/berat"
+            android:textColor="@color/Purple1"
+            tools:layout_editor_absoluteX="223dp"
+
+            tools:layout_editor_absoluteY="204dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:contentDescription="@string/Satuan_description"
+            android:id="@+id/satuan_field"
+            android:layout_width="92dp"
+            android:layout_height="54dp"
+            android:layout_margin="0dp"
+            android:autofillHints="password"
+            android:background="@drawable/field_type_radius"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="0dp"
+            android:textColor="@color/navi"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="223dp"
+            tools:layout_editor_absoluteY="241dp" />
+
+        <ImageButton
+            android:contentDescription="@string/add_rectangle_button"
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="null"
+            app:srcCompat="@drawable/add_rectangle"
+            tools:layout_editor_absoluteX="334dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <TextView
+            android:id="@+id/description_input_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/harga_menu"
+            android:textColor="@color/Purple1"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="339dp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/field_harga_menu"
+            android:layout_width="354dp"
+            android:layout_height="62dp"
+            android:layout_margin="0dp"
+            android:autofillHints="password"
+            android:background="@drawable/field_type_radius"
+            android:ems="10"
+            android:hint="@string/field_menu_3"
+            android:inputType="textLongMessage"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="0dp"
+            android:textColor="@color/navi"
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="374dp" />
+
+        <Button
+            android:id="@+id/input_Button"
+            android:layout_width="348dp"
+            android:layout_height="57dp"
+            android:background="@drawable/action_button"
+            android:text="@string/input_action"
+            android:textColor="@color/White2"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="464dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,4 +55,17 @@
     <string name="Receipt">Receipt</string>
     <string name="MenuName">Menu Name</string>
     <string name="Searchyourmenu">Search your menu</string>
+    <string name="input_menu">Input Menu</string>
+    <string name="nama_menu">Nama Menu\n</string>
+    <string name="field_menu">Field Nama Menu\n</string>
+    <string name="field_menu_1">Masukkan Nama Menu</string>
+    <string name="ingridient">Ingridient</string>
+    <string name="berat">Satuan (ml/g)</string>
+    <string name="field_menu_2">Bahan dari Menu</string>
+    <string name="harga_menu">Harga Menu</string>
+    <string name="field_menu_3">Masukkan Harga Menu</string>
+    <string name="Satuan_description">Satuan Harga dari menu</string>
+    <string name="add_rectangle_button">add_rectangle_button</string>
+    <string name="input_action">Input</string>
+    <color name="field_menu1">Masukkan Nama Menu</color>
 </resources>
