@@ -1,4 +1,4 @@
-package com.dicoding.InsightCart
+package com.dicoding.InsightCart.ui.onboaring
 
 import android.content.Intent
 import android.os.Build
@@ -7,6 +7,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.dicoding.InsightCart.databinding.ActivityOnboardingBinding
+import com.dicoding.InsightCart.ui.Auth.AuthActivity
 
 class OnboardingActivity : AppCompatActivity() {
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/background1"
     android:paddingHorizontal="20dp"
-    tools:context=".LoginFragment"
+    tools:context=".ui.Auth.LoginFragment"
     android:layout_height="match_parent">
 
     <!-- TextView untuk judul (misalnya tab_login) -->

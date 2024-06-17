@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/background1"
     android:paddingHorizontal="20dp"
-    tools:context=".SignUpFragment">
+    tools:context=".ui.Auth.SignUpFragment">
 
     <!-- Title TextView -->
     <TextView
