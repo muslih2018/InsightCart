@@ -1,13 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent">
+    android:background="@color/white">
+
+    <!-- Container ConstraintLayout for icons -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,8 +15,7 @@
         android:background="@color/White1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintStart_toStartOf="parent">
 
         <!-- Home Icon -->
 
@@ -24,7 +23,7 @@
             android:id="@+id/home"
             android:layout_width="69dp"
             android:layout_height="69dp"
-            android:background="null"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/home_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/inventory_button"
@@ -34,7 +33,47 @@
 
         <!-- Inventory Icon -->
 
+        <ImageButton
+            android:id="@+id/inventory_button"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/inventory_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cashier_icon"
+            app:layout_constraintStart_toEndOf="@+id/home"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/inventory" />
+
         <!-- Cashier Icon -->
+
+        <ImageButton
+            android:id="@+id/cashier_icon"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/logo_menu_cashier"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/analysys_button"
+            app:layout_constraintStart_toEndOf="@+id/inventory_button"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/cashier" />
+
+        <!-- Analysis Icon -->
+
+        <ImageButton
+            android:id="@+id/analysys_button"
+            android:layout_width="69dp"
+            android:layout_height="69dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/analysys_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cashier_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/analysys" />
+
+        <!-- Text Labels -->
 
         <TextView
             android:id="@+id/Home_text"
@@ -45,49 +84,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/home"
             app:layout_constraintEnd_toEndOf="@+id/home"
             app:layout_constraintStart_toStartOf="@+id/home"
-            app:layout_constraintTop_toBottomOf="@+id/home"
-      />
-
-        <ImageButton
-            android:id="@+id/inventory_button"
-            android:layout_width="69dp"
-            android:layout_height="69dp"
-            android:background="null"
-            android:contentDescription="@string/inventory_logo"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/cashier_icon"
-            app:layout_constraintStart_toEndOf="@+id/home"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/inventory" />
-
-        <!-- Analysis Icon -->
-
-        <ImageButton
-            android:id="@+id/cashier_icon"
-            android:layout_width="69dp"
-            android:layout_height="69dp"
-            android:background="null"
-            android:contentDescription="@string/logo_menu_cashier"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/analysys_button"
-            app:layout_constraintStart_toEndOf="@+id/inventory_button"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/cashier" />
-
-        <!-- Text Labels -->
-
-        <ImageButton
-            android:id="@+id/analysys_button"
-            android:layout_width="69dp"
-            android:layout_height="69dp"
-
-            android:background="null"
-            android:contentDescription="@string/analysys_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/cashier_icon"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/analysys" />
+            app:layout_constraintTop_toBottomOf="@+id/home" />
 
         <TextView
             android:id="@+id/Inventory_Icon"
@@ -105,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cashier"
-            android:textColor="@color/LightGrey"
+            android:textColor="@color/ungu"
             app:layout_constraintBottom_toBottomOf="@+id/cashier_icon"
             app:layout_constraintEnd_toEndOf="@+id/cashier_icon"
             app:layout_constraintStart_toStartOf="@+id/cashier_icon"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layoutDescription="@xml/activity_main_scene"
-    tools:context=".OnboardingActivity"
+    tools:context=".ui.onboaring.OnboardingActivity"
     android:background="@drawable/background1">
 
     <ImageView
