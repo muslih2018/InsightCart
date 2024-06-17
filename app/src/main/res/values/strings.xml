@@ -50,4 +50,9 @@
     <string name="analysis">Analysis</string>
     <string name="add_button">add_button\n</string>
     <string name="delete_button">delete_button\n</string>
+    <string name="Transaction">Transaction</string>
+    <string name="Records">Records</string>
+    <string name="Receipt">Receipt</string>
+    <string name="MenuName">Menu Name</string>
+    <string name="Searchyourmenu">Search your menu</string>
 </resources>
