@@ -1,5 +1,6 @@
 package com.dicoding.InsightCart.ui.Auth
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.annotation.StringRes
@@ -32,7 +33,12 @@ class AuthActivity : AppCompatActivity() {
 
 //      button close
         binding.closeButton.setOnClickListener {
+            startActivity(Intent(this, AuthActivity::class.java))
          finish()
+        }
+        binding.closeButton.setOnClickListener {
+            startActivity(Intent(this, AuthActivity::class.java))
+            finish()
         }
 
         // Atur TabLayout dengan custom view
