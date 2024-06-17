@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.dicoding.InsightCart.ui.home.HomeFragment"
+        android:label="@string/home_button"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_inventory"
+        android:name="com.dicoding.InsightCart.ui.Inventory.InventoryFragment"
+        android:label="@string/inventory_icon"
+        tools:layout="@layout/fragment_inventory" />
+
+    <fragment
+        android:id="@+id/navigation_cashier"
+        android:name="com.dicoding.InsightCart.ui.Cashier.CashierFragment"
+        android:label="@string/cashier"
+        tools:layout="@layout/fragment_cashier" />
+    <fragment
+        android:id="@+id/navigation_analisis"
+        android:name="com.dicoding.InsightCart.ui.analisis.AnalisisFragment"
+        android:label="@string/analysis"
+        tools:layout="@layout/fragment_analisis" />
+</navigation>

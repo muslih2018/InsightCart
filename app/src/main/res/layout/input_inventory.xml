@@ -47,7 +47,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!------- Content Field ---->
+    <!--- Content Field -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -143,7 +143,7 @@
             android:id="@+id/input_add_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="null"
+            android:background="@android:color/transparent"
             android:contentDescription="@string/add_rectangle_button"
             app:srcCompat="@drawable/add_rectangle"
             tools:layout_editor_absoluteX="334dp"

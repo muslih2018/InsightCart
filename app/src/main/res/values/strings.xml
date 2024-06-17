@@ -70,10 +70,5 @@
     <string name="edit_menu">Edit Menu\n</string>
     <string name="edit_ingridient">Edit Ingridients</string>
     <string name="edit_harga_menu">Edit Harga Menu</string>
-    <string name="nama_barang">Nama Barang\n</string>
-    <string name="field_menu_4">Masukkan Nama Barang</string>
-    <string name="jumlah_barang">Jumlah Barang</string>
-    <string name="field_menu_5">Masukkan Jumlah Barang</string>
-    <string name="input_update_stock">Input/Update Stock</string>
     <color name="field_menu1">Masukkan Nama Menu</color>
 </resources>
