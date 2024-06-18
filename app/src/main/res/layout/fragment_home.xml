@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
-
+    <include layout="@layout/appbar1"
+        android:id="@+id/includedMenuLayout1"/>
     <TextView
         android:id="@+id/text_home"
         android:layout_width="match_parent"

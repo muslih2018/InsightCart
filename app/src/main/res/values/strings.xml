@@ -32,7 +32,7 @@
     <string name="emaildummy">Email</string>
     <string name="usernamedummy">Syarif Hidayat</string>
     <string name="logout">Logout</string>
-     <!-- Inventory menagement placeholder string-->
+    <!-- Inventory menagement placeholder string-->
     <string name="Menu1">Kopikap</string>
     <string name="Harga1">Rp.20.000</string>
     <string name="delete">Delete</string>
@@ -56,7 +56,7 @@
     <string name="MenuName">Menu Name</string>
     <string name="Searchyourmenu">Search your menu</string>
     <string name="input_menu">Input Menu</string>
-    <string name="nama_menu">Nama Menu\n</string>
+    <string name="nama_menu">Nama Menu</string>
     <string name="field_menu">Field Nama Menu\n</string>
     <string name="field_menu_1">Masukkan Nama Menu</string>
     <string name="ingridient">Ingridient</string>
@@ -70,5 +70,8 @@
     <string name="edit_menu">Edit Menu\n</string>
     <string name="edit_ingridient">Edit Ingridients</string>
     <string name="edit_harga_menu">Edit Harga Menu</string>
-    <color name="field_menu1">Masukkan Nama Menu</color>
+    <string name="nama_barang">nama barang</string>
+    <string name="field_menu1">Masukkan Nama Menu</string>
+    <string name="jumlah_barang">jumlah barang</string>
+    <string name="input_update_stock">input update stock</string>
 </resources>

@@ -9,22 +9,46 @@
         android:id="@+id/navigation_home"
         android:name="com.dicoding.InsightCart.ui.home.HomeFragment"
         android:label="@string/home_button"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_inventory"
         android:name="com.dicoding.InsightCart.ui.Inventory.InventoryFragment"
         android:label="@string/inventory_icon"
-        tools:layout="@layout/fragment_inventory" />
+        tools:layout="@layout/fragment_inventory" >
+        <action
+            android:id="@+id/action_navigation_inventory_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
-    <fragment
-        android:id="@+id/navigation_cashier"
-        android:name="com.dicoding.InsightCart.ui.Cashier.CashierFragment"
-        android:label="@string/cashier"
-        tools:layout="@layout/fragment_cashier" />
+
     <fragment
         android:id="@+id/navigation_analisis"
         android:name="com.dicoding.InsightCart.ui.analisis.AnalisisFragment"
         android:label="@string/analysis"
-        tools:layout="@layout/fragment_analisis" />
+        tools:layout="@layout/fragment_analisis" >
+        <action
+            android:id="@+id/action_navigation_analisis_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_cashier"
+        android:name="com.dicoding.InsightCart.ui.Cashier.CashierFragment"
+        android:label="@string/cashier"
+        tools:layout="@layout/fragment_cashier" >
+
+        <action
+            android:id="@+id/action_cashierFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.dicoding.InsightCart.ui.Profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile"/>
+
 </navigation>

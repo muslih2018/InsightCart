@@ -48,7 +48,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!------- Content Field ---->
+    <!--- Content Field -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
             android:background="@drawable/field_type_radius"
             android:drawableEnd="@drawable/arrow_down"
             android:ems="10"
-            android:hint="@string/field_menu_4"
+            android:hint="@string/field_menu_3"
             android:inputType="textLongMessage"
             android:paddingHorizontal="20dp"
             android:paddingVertical="0dp"
@@ -104,7 +104,7 @@
             android:autofillHints="Jumlah barang tersedia di gudang"
             android:background="@drawable/field_type_radius"
             android:ems="10"
-            android:hint="@string/field_menu_5"
+            android:hint="@string/field_menu_3"
             android:inputType="textLongMessage"
             android:paddingHorizontal="20dp"
             android:paddingVertical="0dp"
@@ -131,7 +131,7 @@
             android:background="@drawable/field_type_radius"
             android:drawableEnd="@drawable/arrow_down"
             android:ems="10"
-            android:hint="@string/field_menu_5"
+            android:hint="@string/field_menu_3"
             android:inputType="textLongMessage"
             android:paddingHorizontal="20dp"
             android:paddingVertical="0dp"
@@ -153,15 +153,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Bottom Navbar -->
-    <include
-        android:id="@+id/bottom_navbar"
-        layout="@layout/bottom_navbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

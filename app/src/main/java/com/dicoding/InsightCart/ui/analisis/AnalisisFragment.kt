@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.databinding.FragmentAnalisisBinding
 
 
@@ -32,6 +34,16 @@ class AnalisisFragment : Fragment() {
         val textView: TextView = binding.textAnalisis
         analisisViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }
+        binding.includedMenuLayout4.Menu.text = getString(R.string.analysis)
+//        navigate to profile
+        // OnClickListener untuk ProfileIcon
+        binding.includedMenuLayout4.ProfileIcon.setOnClickListener {
+            // Navigasi ke ProfileFragment
+            findNavController().navigate(
+                R.id.action_navigation_analisis_to_profileFragment2,
+                null,
+            )
         }
         return root
     }

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.databinding.FragmentInventoryBinding
 
 
@@ -32,6 +34,18 @@ class InventoryFragment : Fragment() {
         val textView: TextView = binding.textInventory
         inventoryViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
+        }
+
+        binding.includedMenuLayout2.Menu.text = getString(R.string.inventory_icon)
+
+//        navigate to profile
+        // OnClickListener untuk ProfileIcon
+        binding.includedMenuLayout2.ProfileIcon.setOnClickListener {
+            // Navigasi ke ProfileFragment
+            findNavController().navigate(
+                R.id.action_navigation_inventory_to_profileFragment2,
+                null,
+            )
         }
         return root
     }
