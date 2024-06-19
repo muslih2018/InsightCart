@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@id/navigation_home">
 
+    <!-- Fragment Home -->
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.dicoding.InsightCart.ui.home.HomeFragment"
@@ -15,6 +16,7 @@
             app:destination="@id/profileFragment" />
     </fragment>
 
+    <!-- Fragment Inventory -->
     <fragment
         android:id="@+id/navigation_inventory"
         android:name="com.dicoding.InsightCart.ui.Inventory.InventoryFragment"
@@ -25,7 +27,7 @@
             app:destination="@id/profileFragment" />
     </fragment>
 
-
+    <!-- Fragment Analisis -->
     <fragment
         android:id="@+id/navigation_analisis"
         android:name="com.dicoding.InsightCart.ui.analisis.AnalisisFragment"
@@ -35,20 +37,58 @@
             android:id="@+id/action_navigation_analisis_to_profileFragment2"
             app:destination="@id/profileFragment" />
     </fragment>
+
+    <!-- Fragment Cashier -->
     <fragment
         android:id="@+id/navigation_cashier"
         android:name="com.dicoding.InsightCart.ui.Cashier.CashierFragment"
         android:label="@string/cashier"
         tools:layout="@layout/fragment_cashier" >
 
+        <!-- Action to TransactionFragment -->
+        <action
+            android:id="@+id/action_cashierFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+
+        <!-- Action to ReceiptFragment -->
+        <action
+            android:id="@+id/action_cashierFragment_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
+
+        <!-- Action to RecordsFragment -->
+        <action
+            android:id="@+id/action_cashierFragment_to_recordsFragment"
+            app:destination="@id/recordsFragment" />
+
+        <!-- Action to ProfileFragment -->
         <action
             android:id="@+id/action_cashierFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
+
+    <!-- Fragment Profile -->
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.dicoding.InsightCart.ui.Profile.ProfileFragment"
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile"/>
+
+    <!-- Fragment Transaction -->
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.dicoding.InsightCart.ui.Cashier.TransactionFragment"
+        android:label="@string/Transaction" />
+
+    <!-- Fragment Receipt -->
+    <fragment
+        android:id="@+id/receiptFragment"
+        android:name="com.dicoding.InsightCart.ui.Cashier.ReceiptFragment"
+        android:label="@string/Receipt" />
+
+    <!-- Fragment Records -->
+    <fragment
+        android:id="@+id/recordsFragment"
+        android:name="com.dicoding.InsightCart.ui.Cashier.RecordsFragment"
+        android:label="@string/Records" />
 
 </navigation>

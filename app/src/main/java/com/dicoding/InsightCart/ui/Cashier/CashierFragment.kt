@@ -5,52 +5,97 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
+import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.databinding.FragmentCashierBinding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 
 class CashierFragment : Fragment() {
 
     private var _binding: FragmentCashierBinding? = null
+    val binding get() = _binding!!
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    companion object {
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.Transaction,
+            R.string.Receipt,
+            R.string.Records
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val cashierViewModel =
-            ViewModelProvider(this).get(CashierViewModel::class.java)
-
         _binding = FragmentCashierBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textCashier
-        cashierViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        binding.includedMenuLayout3.Menu.text = getString(R.string.Transaction)
-//      navigate to profile
-        // OnClickListener untuk ProfileIcon
-        binding.includedMenuLayout3.ProfileIcon.setOnClickListener {
-            // Navigasi ke ProfileFragment
-            findNavController().navigate(
-                R.id.action_cashierFragment_to_profileFragment,
-                null,
-            )
-        }
+        // Setup ViewPager2 with adapter
+        val pagerAdapter = CashierPagerAdapter(this)
+        binding.viewPager.adapter = pagerAdapter
 
+        // Setup TabLayout with ViewPager2
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            tab.text = resources.getString(TAB_TITLES[position])
+        }.attach()
+
+        // Atur TabLayout dengan custom view
+        TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
+            val customTabView = layoutInflater.inflate(R.layout.custom_tab_layout_submenu, null) as TextView
+            customTabView.text = resources.getString(TAB_TITLES[position])
+            tab.customView = customTabView
+        }.attach()
+
+        // Atur warna teks untuk tab yang tidak dipilih
+        binding.includedMenuLayout3.Menu.text = getString(R.string.cashier)
+        binding.tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                updateTabTextView(tab, true)
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                updateTabTextView(tab, false)
+            }
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+                // Optional: Handle reselection if needed
+            }
+        })
+        // Set the second tab as initially selected
+        binding.tabs.getTabAt(2)?.select()
+        binding.tabs.getTabAt(1)?.select()
         return root
+    }
+
+    private fun updateTabTextView(tab: TabLayout.Tab?, isSelected: Boolean) {
+        val customView = tab?.customView as TextView?
+        customView?.let {
+            it.isSelected = isSelected // Memperbarui status terpilih atau tidak terpilih
+            it.setTextColor(resources.getColor(if (isSelected) R.color.tab_text_color_selected else R.color.tab_text_color_unselected))
+        }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    // Adapter for ViewPager2
+    private inner class CashierPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
+        override fun getItemCount(): Int = TAB_TITLES.size
+
+        override fun createFragment(position: Int): Fragment {
+            return when (position) {
+                0 -> TransactionFragment()
+                1 -> ReceiptFragment()
+                2 -> RecordsFragment()
+                else -> throw IndexOutOfBoundsException("Invalid fragment position")
+            }
+        }
     }
 }

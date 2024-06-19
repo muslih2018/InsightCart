@@ -36,10 +36,7 @@ class AuthActivity : AppCompatActivity() {
             startActivity(Intent(this, AuthActivity::class.java))
          finish()
         }
-        binding.closeButton.setOnClickListener {
-            startActivity(Intent(this, AuthActivity::class.java))
-            finish()
-        }
+
 
         // Atur TabLayout dengan custom view
         TabLayoutMediator(binding.tabs, binding.viewPager) { tab, position ->
@@ -64,7 +61,8 @@ class AuthActivity : AppCompatActivity() {
             }
         })
 
-
+        binding.tabs.getTabAt(1)?.select()
+        binding.tabs.getTabAt(0)?.select()
         supportActionBar?.elevation = 0f
     }
 
