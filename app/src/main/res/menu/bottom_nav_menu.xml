@@ -11,6 +11,8 @@
         android:icon="@drawable/inventory"
         android:title="@string/inventory_icon" />
 
+
+
     <item
         android:id="@+id/navigation_cashier"
         android:icon="@drawable/cashier"

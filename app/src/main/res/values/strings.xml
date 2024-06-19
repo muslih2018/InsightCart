@@ -74,4 +74,7 @@
     <string name="field_menu1">Masukkan Nama Menu</string>
     <string name="jumlah_barang">jumlah barang</string>
     <string name="input_update_stock">input update stock</string>
+    <string name="menu_title">Menu</string>
+    <string name="item">Item</string>
+    <string name="inventory">Inventory\n</string>
 </resources>
