@@ -10,6 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.databinding.FragmentCashierBinding
+import com.dicoding.InsightCart.ui.Cashier.Receipt.ReceiptFragment
+import com.dicoding.InsightCart.ui.Cashier.Records.RecordsFragment
+import com.dicoding.InsightCart.ui.Cashier.Transaction.TransactionFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 

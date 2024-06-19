@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    app:cardCornerRadius="14dp"
+    android:layout_marginVertical="30dp"
+    android:background="@color/white"
     app:cardUseCompatPadding="true">
-
-    <androidx.cardview.widget.CardView
-        android:layout_marginTop="100dp"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_marginHorizontal="9dp"
-        app:cardCornerRadius="14dp"
-        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -36,9 +32,8 @@
                 android:text="ID Transaksi:"
                 android:textColor="@color/LightGrey"
                 android:textSize="16sp"
-                android:layout_marginStart="6dp"
-                android:textStyle="normal"
                 android:paddingStart="14dp"
+                android:textStyle="normal"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/parentIdTv"
                 app:layout_constraintTop_toTopOf="parent"
@@ -99,6 +94,6 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
 
-</FrameLayout>
+
+</androidx.cardview.widget.CardView>

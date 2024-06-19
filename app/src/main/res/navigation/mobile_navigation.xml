@@ -76,19 +76,19 @@
     <!-- Fragment Transaction -->
     <fragment
         android:id="@+id/transactionFragment"
-        android:name="com.dicoding.InsightCart.ui.Cashier.TransactionFragment"
+        android:name="com.dicoding.InsightCart.ui.Cashier.Transaction.TransactionFragment"
         android:label="@string/Transaction" />
 
     <!-- Fragment Receipt -->
     <fragment
         android:id="@+id/receiptFragment"
-        android:name="com.dicoding.InsightCart.ui.Cashier.ReceiptFragment"
+        android:name="com.dicoding.InsightCart.ui.Cashier.Receipt.ReceiptFragment"
         android:label="@string/Receipt" />
 
     <!-- Fragment Records -->
     <fragment
         android:id="@+id/recordsFragment"
-        android:name="com.dicoding.InsightCart.ui.Cashier.RecordsFragment"
+        android:name="com.dicoding.InsightCart.ui.Cashier.Records.RecordsFragment"
         android:label="@string/Records" />
 
 </navigation>

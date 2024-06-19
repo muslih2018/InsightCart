@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <!-- First Horizontal LinearLayout -->
+    <LinearLayout
+        android:id="@+id/linear_layout_search"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@drawable/field_type_radius"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/edit_receipter_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_text_view"
+            android:layout_width="190dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@android:color/transparent"
+            android:paddingLeft="10dp"
+            android:hint="Searching your menu."
+            android:completionThreshold="1" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spinner_team"
+            android:layout_width="44dp"
+            android:layout_height="50dp" />
+    </LinearLayout>
+
+    <!-- EditText -->
+    <EditText
+        android:id="@+id/edit_receipter_name"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+
+        android:background="@drawable/field_type_radius"
+        android:gravity="center"
+        android:hint="Quantity"
+        android:inputType="number"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@id/image_remove"
+        app:layout_constraintStart_toEndOf="@id/linear_layout_search"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- ImageView -->
+    <ImageView
+        android:id="@+id/image_remove"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
