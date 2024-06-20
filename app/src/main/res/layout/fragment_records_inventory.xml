@@ -15,13 +15,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="56dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddItem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/add"
-        app:backgroundTint="@color/navi" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
