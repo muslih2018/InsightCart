@@ -1,5 +1,6 @@
 package com.dicoding.InsightCart.ui.Cashier.Records
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.InsightCart.R
+import com.dicoding.InsightCart.data.Api.koneksi.AllTransactionItem
+import com.dicoding.InsightCart.data.Api.koneksi.ApiConfig
 import com.dicoding.InsightCart.databinding.FragmentRecordsBinding
 import com.dicoding.InsightCart.ui.Cashier.CashierFragment
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RecordsFragment : Fragment() {
 
@@ -40,56 +45,75 @@ class RecordsFragment : Fragment() {
             }
         }
 
-
-//        RecyclerView
+        // Setup RecyclerView
         setUpRecyclerView()
+
+        // Load data from API
+        loadDataFromApi()
+
         return root
     }
-
 
     private fun setUpRecyclerView() {
         binding.parentRecyclerView.setHasFixedSize(true)
         binding.parentRecyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        addDataToList()
         val adapter = ParentAdapter(parentList)
         binding.parentRecyclerView.adapter = adapter
     }
 
-//    simulasi add item
-    private fun addDataToList() {
-        // Transaksi 1
-        val childItems1 = ArrayList<ChildItem>()
-        childItems1.add(ChildItem("kopi", 20, 2000))
-        childItems1.add(ChildItem("ayam", 2, 20000))
-        childItems1.add(ChildItem("susu", 2, 8000))
-        childItems1.add(ChildItem("ayam bawang", 4, 10000))
-        parentList.add(ParentItem("1221122", "03-07-2024 09:00", 200000, childItems1))
+    private fun loadDataFromApi() {
+        val apiService = ApiConfig.getContentApiService()
+        val call = apiService.getAllReceipts()
+        call.enqueue(object : Callback<List<AllTransactionItem>> {
+            override fun onResponse(
+                call: Call<List<AllTransactionItem>>,
+                response: Response<List<AllTransactionItem>>
+            ) {
+                if (response.isSuccessful) {
+                    response.body()?.let { transactions ->
+                        addDataToList(transactions) // Populate data to parentList from API response
+                    }
+                } else {
+                    // Handle unsuccessful response
+                }
+            }
 
-        // Transaksi 2
-        val childItems2 = ArrayList<ChildItem>()
-        childItems2.add(ChildItem("kopi", 20, 2000))
-        childItems2.add(ChildItem("ayam", 2, 20000))
-        childItems2.add(ChildItem("susu", 2, 8000))
-        childItems2.add(ChildItem("ayam bawang", 4, 10000))
-        parentList.add(ParentItem("1221122", "03-07-2024 09:00", 200000, childItems2))
-
-        // Transaksi 3
-        val childItems3 = ArrayList<ChildItem>()
-        childItems3.add(ChildItem("kopi", 20, 2000))
-        childItems3.add(ChildItem("ayam", 2, 20000))
-        childItems3.add(ChildItem("susu", 2, 8000))
-        childItems3.add(ChildItem("ayam bawang", 4, 10000))
-        parentList.add(ParentItem("1221122", "03-07-2024 09:00", 200000, childItems3))
-
-        // Transaksi 4
-        val childItems4 = ArrayList<ChildItem>()
-        childItems4.add(ChildItem("kopi", 20, 2000))
-        childItems4.add(ChildItem("ayam", 2, 20000))
-        childItems4.add(ChildItem("susu", 2, 8000))
-        childItems4.add(ChildItem("ayam bawang", 4, 10000))
-        parentList.add(ParentItem("1221122", "03-07-2024 09:00", 200000, childItems4))
+            override fun onFailure(call: Call<List<AllTransactionItem>>, t: Throwable) {
+                // Handle failure to connect or other errors
+            }
+        })
     }
+
+    private fun addDataToList(transactions: List<AllTransactionItem>) {
+        parentList.clear() // Clear existing data
+        for (transaction in transactions) {
+            val childItems = ArrayList<ChildItem>()
+            val menuname = transaction.productId ?: "Default Product"
+            childItems.add(
+                ChildItem(
+                    menuname,
+                    transaction.quantity,
+                    transaction.unitPrice
+                )
+            )
+
+            // Check if transaction.transactionId is null or empty before creating ParentItem
+            val transactionId = transaction.transactionId ?: ""
+
+            parentList.add(
+                ParentItem(
+                    transactionId,
+                    "${transaction.transactionDate} ${transaction.transactionTime}",
+                    transaction.lineItemAmount, // Make sure this matches the type in ParentItem
+                    childItems
+                )
+            )
+        }
+        binding.parentRecyclerView.adapter?.notifyDataSetChanged() // Notify adapter that data has changed
+    }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

@@ -23,7 +23,7 @@ class SignUpViewModel : ViewModel() {
 
     fun postSignUp(name: String, email: String, password: String) {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().postSignUp(name, email, password)
+        val client = ApiConfig.getLoginApiService().postSignUp(name, email, password)
         client.enqueue(object : Callback<SignUpResponse> {
             override fun onResponse(call: Call<SignUpResponse>, response: Response<SignUpResponse>) {
                 _isLoading.value = false

@@ -40,9 +40,9 @@ class ReceiptFragment : Fragment() {
 
     private fun populateDummyData() {
         // Example dummy data
-        childList.add(ChildItem("Kopi", 2, 2000))
-        childList.add(ChildItem("Ayam", 1, 15000))
-        childList.add(ChildItem("Susu", 3, 5000))
+        childList.add(ChildItem("Kopi", 2, 2.000))
+        childList.add(ChildItem("Ayam", 1, 1.5000))
+        childList.add(ChildItem("Susu", 3, 5.000))
 
         // Notify adapter of data changes
         adapter.notifyDataSetChanged()
