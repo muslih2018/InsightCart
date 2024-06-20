@@ -94,6 +94,8 @@
         android:name="com.dicoding.InsightCart.ui.Cashier.Transaction.TransactionFragment"
         android:label="@string/Transaction" />
 
+
+
     <!-- Fragment Receipt -->
     <fragment
         android:id="@+id/receiptFragment"

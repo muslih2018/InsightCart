@@ -4,47 +4,49 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
-import android.widget.ImageView
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.dicoding.InsightCart.R
+import com.dicoding.InsightCart.data.Api.Response.ApiResponse
+import com.dicoding.InsightCart.data.Api.Response.ApiResponseCode
+import com.dicoding.InsightCart.data.Api.koneksi.ApiConfig
+import com.dicoding.InsightCart.data.Api.koneksi.CheckoutRequest
+import com.dicoding.InsightCart.data.Api.koneksi.OrderItemRequest
+
 import com.dicoding.InsightCart.databinding.FragmentTransactionBinding
 import com.dicoding.InsightCart.ui.Cashier.CashierFragment
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class TransactionFragment : Fragment() , View.OnClickListener{
+class TransactionFragment : Fragment(), View.OnClickListener {
 
     private var _binding: FragmentTransactionBinding? = null
     private val binding get() = _binding!!
-    // Data for dummy list
-    private val receiptsList = listOf("Kopi", "Kue", "Susu", "Roti Bakar")
+    private val receiptsList = listOf("Sugar Free Vanilla syrup", "Chocolate syrup")
     private val receiptersList = ArrayList<Receipt>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment using binding
         _binding = FragmentTransactionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val parentFragment = requireParentFragment()
         if (parentFragment is CashierFragment) {
-            // OnClickListener for ProfileIcon
             parentFragment.binding.includedMenuLayout3.ProfileIcon.setOnClickListener {
-                // Navigate to ProfileFragment
                 findNavController().navigate(
                     R.id.action_cashierFragment_to_profileFragment,
                     null
                 )
             }
         }
+
         binding.buttonAdd.setOnClickListener(this)
         binding.buttonSubmitList.setOnClickListener(this)
+
         return root
     }
 
@@ -53,7 +55,16 @@ class TransactionFragment : Fragment() , View.OnClickListener{
             R.id.button_add -> addView()
             R.id.button_submit_list -> {
                 if (checkIfValidAndRead()) {
-                    Toast.makeText(requireContext(), "Submit List clicked!", Toast.LENGTH_SHORT).show()
+                    performCheckout()
+                    Toast.makeText(requireContext(), "Good code:", Toast.LENGTH_SHORT).show()
+                    val transactionId = "240620182401" // Gantikan ini dengan ID transaksi yang diterima dari response
+                    val bundle = Bundle().apply {
+                        putString("transactionId", transactionId)
+                    }
+                    findNavController().navigate(
+                        R.id.action_cashierFragment_to_receiptFragment,
+                        bundle
+                    )
                 } else {
                     Toast.makeText(requireContext(), "Please enter valid menu!", Toast.LENGTH_SHORT).show()
                 }
@@ -68,10 +79,8 @@ class TransactionFragment : Fragment() , View.OnClickListener{
 
         for (i in 0 until binding.layoutList.childCount) {
             val receipterView = binding.layoutList.getChildAt(i)
-
             val autoCompleteTextView = receipterView.findViewById<AutoCompleteTextView>(R.id.auto_complete_text_view)
             val spinnerTeam = receipterView.findViewById<Spinner>(R.id.spinner_team)
-
             val receipter = Receipt()
 
             val receipterNameText = autoCompleteTextView.text.toString()
@@ -85,7 +94,7 @@ class TransactionFragment : Fragment() , View.OnClickListener{
             }
 
             if (spinnerTeam.selectedItemPosition != 0) {
-                receipter.receiptName = receiptsList[spinnerTeam.selectedItemPosition - 1] // -1 karena posisi 0 adalah hint di Spinner
+                receipter.receiptName = receiptsList[spinnerTeam.selectedItemPosition - 1]
             } else {
                 result = false
                 errorMessage = "Please select a team!"
@@ -109,19 +118,16 @@ class TransactionFragment : Fragment() , View.OnClickListener{
 
     private fun addView() {
         val receipterView = layoutInflater.inflate(R.layout.row_add_transaction, null, false)
-
         val autoCompleteTextView = receipterView.findViewById<AutoCompleteTextView>(R.id.auto_complete_text_view)
         val spinnerTeam = receipterView.findViewById<Spinner>(R.id.spinner_team)
         val imageClose = receipterView.findViewById<ImageView>(R.id.image_remove)
 
-        // Set up AutoCompleteTextView
         val autoCompleteAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, receiptsList)
         autoCompleteTextView.setAdapter(autoCompleteAdapter)
         autoCompleteTextView.setOnItemClickListener { parent, _, position, _ ->
-            spinnerTeam.setSelection(position + 1) // +1 karena posisi 0 adalah hint di Spinner
+            spinnerTeam.setSelection(position + 1)
         }
 
-        // Set up Spinner
         val spinnerAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, receiptsList)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerTeam.adapter = spinnerAdapter
@@ -136,18 +142,65 @@ class TransactionFragment : Fragment() , View.OnClickListener{
         }
 
         imageClose.setOnClickListener { removeView(receipterView) }
-
         binding.layoutList.addView(receipterView)
     }
 
     private fun removeView(view: View) {
         binding.layoutList.removeView(view)
-        checkIfValidAndRead() // Update submit button status after removing a view
+        checkIfValidAndRead()
     }
+
+private fun performCheckout() {
+    val orderItems = mutableListOf<OrderItemRequest>()
+
+    for (i in 0 until binding.layoutList.childCount) {
+        val receipterView = binding.layoutList.getChildAt(i)
+        val autoCompleteTextView = receipterView.findViewById<AutoCompleteTextView>(R.id.auto_complete_text_view)
+        val spinnerTeam = receipterView.findViewById<Spinner>(R.id.spinner_team)
+
+        val itemName = autoCompleteTextView.text.toString()
+        val quantity = spinnerTeam.selectedItemPosition + 1 // +1 karena posisi 0 adalah hint di Spinner
+
+        orderItems.add(OrderItemRequest(itemName, quantity))
+    }
+
+    val checkoutRequest = CheckoutRequest(orderItems)
+
+    val apiService = ApiConfig.getContentApiService().checkout(checkoutRequest)
+
+    apiService.enqueue(object : Callback<ApiResponse> {
+        override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
+            if (response.isSuccessful) {
+                val apiResponse = response.body()
+                when (apiResponse?.code) {
+                    ApiResponseCode.SUCCESS.code -> {
+
+                        Toast.makeText(requireContext(), "Checkout berhasil", Toast.LENGTH_SHORT).show()
+                    }
+                    ApiResponseCode.BAD_REQUEST.code -> {
+                        Toast.makeText(requireContext(), "Request body invalid", Toast.LENGTH_SHORT).show()
+                    }
+                    ApiResponseCode.INTERNAL_SERVER_ERROR.code -> {
+                        Toast.makeText(requireContext(), "Internal server error", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> {
+                        Toast.makeText(requireContext(), "Unknown response code: ${apiResponse?.code}", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } else {
+                Toast.makeText(requireContext(), "Request failed with code: ${response.code()}", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        override fun onFailure(call: Call<ApiResponse>, t: Throwable) {
+            Toast.makeText(requireContext(), "Checkout error: ${t.message}", Toast.LENGTH_SHORT).show()
+        }
+    })
+}
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
-
 }

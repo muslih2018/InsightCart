@@ -71,5 +71,7 @@ dependencies {
     implementation(libs.play.services.auth)
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
+    implementation ("androidx.paging:paging-runtime-ktx:3.0.1")
+
 
 }
