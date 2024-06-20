@@ -5,8 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Inventory.InventoryFragment">
+
     <include layout="@layout/appbar1"
         android:id="@+id/includedMenuLayout2"/>
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs"
         android:layout_width="0dp"

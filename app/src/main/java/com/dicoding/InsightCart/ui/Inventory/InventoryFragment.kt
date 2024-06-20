@@ -57,6 +57,15 @@ class InventoryFragment : Fragment() {
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
 
+        // OnClickListener untuk ProfileIcon
+        binding.includedMenuLayout2.ProfileIcon.setOnClickListener {
+            // Navigasi ke ProfileFragment
+            findNavController().navigate(
+                R.id.action_navigation_inventory_to_profileFragment2,
+                null,
+            )
+        }
+
         return root
     }
 

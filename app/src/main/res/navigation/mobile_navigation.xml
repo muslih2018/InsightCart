@@ -23,10 +23,22 @@
         android:label="@string/inventory_icon"
         tools:layout="@layout/fragment_inventory" >
 
+        <!-- Action to ProfileFragment -->
         <action
             android:id="@+id/action_navigation_inventory_to_profileFragment2"
             app:destination="@id/profileFragment" />
+
+        <!-- Action to  Item Fragment -->
+        <action
+            android:id="@+id/action_navigation_inventory_to_itemFragment"
+            app:destination="@id/itemFragment" />
+
+        <!-- Action to RecordsFragment -->
+        <action
+            android:id="@+id/action_navigation_inventory_to_recordsFragment2"
+            app:destination="@id/recordsFragment2" />
     </fragment>
+
 
     <!-- Fragment Analisis -->
     <fragment
