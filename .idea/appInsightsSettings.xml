@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.dicoding.InsightCart" />
+                  <option name="mobileSdkAppId" value="1:530342185692:android:965b1e2803459b9df08219" />
+                  <option name="projectId" value="auth-firebase-54ace" />
+                  <option name="projectNumber" value="530342185692" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
