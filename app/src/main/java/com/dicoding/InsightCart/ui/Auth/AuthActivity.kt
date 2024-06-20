@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.databinding.ActivityAuthBinding
+import com.dicoding.InsightCart.ui.onboaring.OnboardingActivity
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -33,8 +34,8 @@ class AuthActivity : AppCompatActivity() {
 
 //      button close
         binding.closeButton.setOnClickListener {
-            startActivity(Intent(this, AuthActivity::class.java))
-         finish()
+            startActivity(Intent(this, OnboardingActivity::class.java))
+            this.finish()
         }
 
 

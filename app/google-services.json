@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530342185692",
+    "project_id": "auth-firebase-54ace",
+    "storage_bucket": "auth-firebase-54ace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530342185692:android:965b1e2803459b9df08219",
+        "android_client_info": {
+          "package_name": "com.dicoding.InsightCart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCRO7PSIbznF-4ZRVVHJ3ZFw4o-fexOZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

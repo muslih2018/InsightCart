@@ -36,6 +36,7 @@ class OnboardingActivity : AppCompatActivity() {
     private fun setupAction() {
         binding.button.setOnClickListener {
             startActivity(Intent(this, AuthActivity::class.java))
+            this.finish()
         }
 
 

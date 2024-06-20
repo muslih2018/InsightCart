@@ -11,10 +11,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import com.dicoding.InsightCart.R
+import androidx.lifecycle.lifecycleScope
 import com.dicoding.InsightCart.databinding.FragmentSignUpBinding
-import com.dicoding.InsightCart.ui.Cashier.CashierFragment
 import com.dicoding.picodiploma.loginwithanimation.data.Api.Response.SignUpResponse
+import kotlinx.coroutines.launch
 
 class SignUpFragment : Fragment() {
 
@@ -34,14 +34,11 @@ class SignUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupAction()
-        signUpViewModel.isLoading.observe(requireActivity()) {
+        signUpViewModel.isLoading.observe(viewLifecycleOwner) {
             showLoading(it)
         }
     }
-    private fun showLoading(state: Boolean) {
-        binding.pbLoding.isVisible = state
 
-    }
     private fun setupAction() {
         binding.signupButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
@@ -55,22 +52,27 @@ class SignUpFragment : Fragment() {
                 return@setOnClickListener
             }
 
-            signUpViewModel.postSignUp(name, email, password)
-
-            // Sembunyikan keyboard
-            val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.hideSoftInputFromWindow(it.windowToken, 0)
-
-            // Amati respons dari sign up
-            signUpViewModel.signUpResponse.observe(viewLifecycleOwner) { data ->
-                processSignUp(data)
-                if (!data.error) {
-                    // Bersihkan input fields jika sukses sign up
-                    binding.usernameEditText.text = null
-                    binding.emailEditText.text = null
-                    binding.passwordEditText.text = null
-                    binding.confirmPasswordEditText.text = null
+            viewLifecycleOwner.lifecycleScope.launch {
+                try {
+                    signUpViewModel.postSignUp(name, email, password)
+                    // Sembunyikan keyboard
+                    val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    imm.hideSoftInputFromWindow(it.windowToken, 0)
+                } catch (e: Exception) {
+                    // Handle exception jika terjadi
+                    Toast.makeText(requireContext(), "Terjadi kesalahan: ${e.message}", Toast.LENGTH_LONG).show()
                 }
+            }
+        }
+
+        signUpViewModel.signUpResponse.observe(viewLifecycleOwner) { data ->
+            processSignUp(data)
+            if (!data.error) {
+                // Bersihkan input fields jika sukses sign up
+                binding.usernameEditText.text = null
+                binding.emailEditText.text = null
+                binding.passwordEditText.text = null
+                binding.confirmPasswordEditText.text = null
             }
         }
     }
@@ -94,7 +96,14 @@ class SignUpFragment : Fragment() {
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+    private fun showLoading(state: Boolean) {
+        binding.pbLoding.isVisible = state
 
+    }
 
 
 }

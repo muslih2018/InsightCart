@@ -77,4 +77,5 @@
     <string name="menu_title">Menu</string>
     <string name="item">Item</string>
     <string name="inventory">Inventory\n</string>
+    <string name="your_web_client_id">your web clinet id</string>
 </resources>
