@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -63,6 +64,7 @@ class RecordsFragment : Fragment() {
     }
 
     private fun loadDataFromApi() {
+        binding.pbLoding.visibility = View.VISIBLE
         val apiService = ApiConfig.getContentApiService()
         val call = apiService.getAllReceipts()
         call.enqueue(object : Callback<List<AllTransactionItem>> {
@@ -70,12 +72,13 @@ class RecordsFragment : Fragment() {
                 call: Call<List<AllTransactionItem>>,
                 response: Response<List<AllTransactionItem>>
             ) {
+                binding.pbLoding.visibility = View.GONE
                 if (response.isSuccessful) {
                     response.body()?.let { transactions ->
                         addDataToList(transactions) // Populate data to parentList from API response
                     }
                 } else {
-                    // Handle unsuccessful response
+                    Toast.makeText(requireContext(), "Gagal memuat Records", Toast.LENGTH_LONG).show()
                 }
             }
 
