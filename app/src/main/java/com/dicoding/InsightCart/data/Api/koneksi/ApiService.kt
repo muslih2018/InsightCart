@@ -1,5 +1,6 @@
 package com.dicoding.InsightCart.data.Api.koneksi
 
+import MenuResponseItem
 import com.dicoding.InsightCart.data.Api.Response.CheckoutResponse
 import com.dicoding.picodiploma.loginwithanimation.data.Api.Response.SignUpResponse
 import retrofit2.Call
@@ -23,4 +24,10 @@ interface ApiService {
 
     @GET("print-receipt/{transactionId}")
     fun getReceipt(@Path("transactionId") transactionId: String): Call<ReceiptResponse>
+
+    @GET("getMenuItems")
+    fun getMenu(): Call<List<MenuResponseItem>>
+
+
+
 }

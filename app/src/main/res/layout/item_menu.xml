@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:padding="8dp"
+    android:layout_marginVertical="1.5dp"
+android:weightSum="1"
+    android:background="@color/white"
+android:id="@+id/recycler_menu_item">
+
+<!-- Menu Column -->
+<TextView
+    android:id="@+id/text_menu_name"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.4"
+    android:padding="8dp"
+    android:text="Kopikap"
+    android:textSize="16sp"
+    android:textColor="@android:color/black" />
+
+<!-- Harga Column -->
+<TextView
+    android:id="@+id/text_menu_price"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.4"
+    android:padding="8dp"
+    android:text="Rp 20.000"
+    android:textSize="16sp"
+    android:textColor="@android:color/black" />
+
+<!-- Action Column with Delete Button -->
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="0.2"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <!-- Delete Button -->
+    <ImageButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/delete_button"
+        android:src="@drawable/delete" />
+</LinearLayout>
+</LinearLayout>
+

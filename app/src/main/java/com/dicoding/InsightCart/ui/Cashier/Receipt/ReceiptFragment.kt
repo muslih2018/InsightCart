@@ -82,7 +82,7 @@ class ReceiptFragment : Fragment() {
                             // Set other data to TextViews if needed
                             binding.parentdateTv.text = it.tanggal
                             binding.parentIdTv.text = it.idTransaksi
-                            binding.parenttotalTv.text = "${it.grandTotal}"
+                            binding.parenttotalTv.text = "Rp."+"${it.grandTotal}"
                         }
                     } else {
                         Toast.makeText(requireContext(), "Gagal mengambil data receipt", Toast.LENGTH_SHORT).show()

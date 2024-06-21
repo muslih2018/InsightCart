@@ -101,12 +101,23 @@
     <!-- Fragment Transaction -->
     <fragment
         android:id="@+id/transactionFragment"
-        android:name="com.dicoding.InsightCart.ui.Cashier.Transaction.TransactionFragment"
-        android:label="@string/Transaction" > <action
-        android:id="@+id/action_Transaction_to_receiptFragment"
-        app:destination="@id/receiptFragment" /></fragment>
+        android:name="com.dicoding.InsightCart.ui.Menu.MenuFragment"
+        android:label="@string/Transaction"
+        tools:layout="@layout/fragment_transaction" >
+        <action
+            android:id="@+id/action_Transaction_to_receiptFragment"
+            app:destination="@id/receiptFragment" />
+    </fragment>
 
-
+    <fragment
+        android:id="@+id/navigation_menu"
+        android:name="com.dicoding.InsightCart.ui.Menu.MenuFragment"
+        android:label="@string/menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_navigation_menu_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
     <!-- Fragment Receipt -->
     <fragment

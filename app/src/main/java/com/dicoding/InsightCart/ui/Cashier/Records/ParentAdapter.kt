@@ -25,7 +25,7 @@ class ParentAdapter(private val parentList: List<ParentItem>) :
 
     override fun onBindViewHolder(holder: ParentViewHolder, position: Int) {
         val parentItem = parentList[position]
-        holder.total.text = parentItem.total.toString() // Menampilkan total sebagai teks
+        holder.total.text = "Rp."+parentItem.total.toString() // Menampilkan total sebagai teks
         holder.id.text = parentItem.id
         holder.date.text = parentItem.date
 

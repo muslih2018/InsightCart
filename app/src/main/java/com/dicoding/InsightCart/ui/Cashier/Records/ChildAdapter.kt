@@ -24,7 +24,7 @@ class ChildAdapter(private val childList: List<ChildItem>) :
     override fun onBindViewHolder(holder: ChildViewHolder, position: Int) {
         holder.menuname.text = childList[position].menuname
         holder.quantity.text = childList[position].quantity.toString()
-        holder.harga.text = childList[position].harga.toString()
+        holder.harga.text = "Rp." + childList[position].harga.toString()
     }
 
     override fun getItemCount(): Int {

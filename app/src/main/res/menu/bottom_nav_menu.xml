@@ -11,7 +11,10 @@
         android:icon="@drawable/inventory"
         android:title="@string/inventory_icon" />
 
-
+    <item
+        android:id="@+id/navigation_menu"
+        android:icon="@drawable/baseline_add_shopping_cart_242"
+        android:title="@string/menu"/>
 
     <item
         android:id="@+id/navigation_cashier"

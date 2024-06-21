@@ -66,6 +66,8 @@ class InventoryFragment : Fragment() {
             )
         }
 
+        binding.includedMenuLayout2.Menu.text = getString(R.string.inventory)
+
         return root
     }
 
