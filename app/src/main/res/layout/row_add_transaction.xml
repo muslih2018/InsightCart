@@ -13,7 +13,7 @@
         android:orientation="horizontal"
         android:background="@drawable/field_type_radius"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/edit_receipter_name"
+        app:layout_constraintEnd_toStartOf="@id/edit_receipter_quantity"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
 
@@ -34,11 +34,10 @@
 
     <!-- EditText -->
     <EditText
-        android:id="@+id/edit_receipter_name"
+        android:id="@+id/edit_receipter_quantity"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
-
         android:background="@drawable/field_type_radius"
         android:gravity="center"
         android:hint="Quantity"

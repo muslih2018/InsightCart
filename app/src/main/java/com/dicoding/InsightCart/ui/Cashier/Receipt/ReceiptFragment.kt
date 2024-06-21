@@ -5,15 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.data.Api.koneksi.ApiConfig
 import com.dicoding.InsightCart.data.Api.koneksi.ApiService
 import com.dicoding.InsightCart.data.Api.koneksi.ReceiptResponse
 import com.dicoding.InsightCart.databinding.FragmentReceiptBinding
 import com.dicoding.InsightCart.ui.Cashier.Records.ChildAdapter
 import com.dicoding.InsightCart.ui.Cashier.Records.ChildItem
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,6 +31,7 @@ class ReceiptFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: ChildAdapter
     private lateinit var apiService: ApiService
+    private var bottomNavVisibility = true
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,6 +44,11 @@ class ReceiptFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Hide bottom navigation view
+        val bottomNavView = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        bottomNavVisibility = bottomNavView?.isVisible ?: true
+        bottomNavView?.visibility = View.GONE
+
         recyclerView = binding.langRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = ChildAdapter(childList)
@@ -45,7 +56,7 @@ class ReceiptFragment : Fragment() {
         apiService = ApiConfig.getContentApiService()
 
         binding.arrowIcon.setOnClickListener {
-            activity?.onBackPressed()
+            removeThisFragment()
         }
 
         val transactionId = arguments?.getString("transactionId")
@@ -62,16 +73,16 @@ class ReceiptFragment : Fragment() {
 
                             // Add items from API response to childList
                             for (item in it.items) {
-                                childList.add(ChildItem(item.name, item.quantity, item.price))
+                                childList.add(ChildItem(item.namaMenu, item.jumlah, item.harga))
                             }
 
                             // Notify adapter of data changes
                             adapter.notifyDataSetChanged()
 
                             // Set other data to TextViews if needed
-                            binding.parentdateTv.text = "Tanggal: ${it.tanggal}"
-                            binding.parentIdTv.text = "ID Transaksi: ${it.idTransaksi}"
-                            binding.parenttotalTv.text = "Grand Total: Rp ${it.grandTotal}"
+                            binding.parentdateTv.text = it.tanggal
+                            binding.parentIdTv.text = it.idTransaksi
+                            binding.parenttotalTv.text = "${it.grandTotal}"
                         }
                     } else {
                         Toast.makeText(requireContext(), "Gagal mengambil data receipt", Toast.LENGTH_SHORT).show()
@@ -83,10 +94,29 @@ class ReceiptFragment : Fragment() {
                 }
             })
         }
+
+        // Handle back press
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                removeThisFragment()
+            }
+        })
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
+        // Restore bottom navigation visibility
+        val bottomNavView = activity?.findViewById<BottomNavigationView>(R.id.nav_view)
+        if (bottomNavVisibility) {
+            bottomNavView?.visibility = View.VISIBLE
+        }
+
         _binding = null
+    }
+
+    private fun removeThisFragment() {
+        // Remove current fragment from FragmentManager
+        val fragmentManager: FragmentManager = requireActivity().supportFragmentManager
+        fragmentManager.beginTransaction().remove(this).commit()
     }
 }

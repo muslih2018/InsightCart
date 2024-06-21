@@ -36,6 +36,7 @@
             android:textColor="@color/LightGrey"
             android:textSize="14sp"
             android:textStyle="normal"
+            android:textAlignment="center"
             app:layout_constraintStart_toEndOf="@+id/childMenuNameTv"
             app:layout_constraintEnd_toStartOf="@+id/childhargaTv"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,6 +46,7 @@
         <TextView
             android:id="@+id/childhargaTv"
             android:layout_width="0dp"
+            android:textAlignment="textEnd"
             android:layout_height="wrap_content"
             android:text="Rp.20.000"
             android:textColor="@color/LightGrey"

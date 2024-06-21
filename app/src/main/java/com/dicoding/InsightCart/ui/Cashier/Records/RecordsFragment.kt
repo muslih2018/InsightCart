@@ -123,3 +123,4 @@ class RecordsFragment : Fragment() {
         _binding = null
     }
 }
+

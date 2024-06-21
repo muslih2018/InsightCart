@@ -1,5 +1,6 @@
 package com.dicoding.InsightCart.ui.Cashier
 
+import TransactionFragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +12,6 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.dicoding.InsightCart.R
 import com.dicoding.InsightCart.databinding.FragmentCashierBinding
 import com.dicoding.InsightCart.ui.Cashier.Records.RecordsFragment
-import com.dicoding.InsightCart.ui.Cashier.Transaction.TransactionFragment
 
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
@@ -70,7 +70,6 @@ class CashierFragment : Fragment() {
         })
 
         // Set the third tab as initially selected
-        binding.tabs.getTabAt(1)?.select()
         binding.tabs.getTabAt(0)?.select()
 
         return root

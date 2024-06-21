@@ -1,6 +1,6 @@
 package com.dicoding.InsightCart.data.Api.koneksi
 
-import com.dicoding.InsightCart.data.Api.Response.ApiResponse
+import com.dicoding.InsightCart.data.Api.Response.CheckoutResponse
 import com.dicoding.picodiploma.loginwithanimation.data.Api.Response.SignUpResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -19,10 +19,8 @@ interface ApiService {
 
 
     @POST("checkout")
-    fun checkout(@Body request: CheckoutRequest): Call<ApiResponse>
+    fun checkout(@Body request: CheckoutRequest): Call<CheckoutResponse>
 
     @GET("print-receipt/{transactionId}")
     fun getReceipt(@Path("transactionId") transactionId: String): Call<ReceiptResponse>
-
-
 }

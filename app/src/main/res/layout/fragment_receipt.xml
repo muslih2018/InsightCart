@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     app:cardUseCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,8 +27,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:tint="#FFFFFF"
-            app:layout_constraintVertical_bias="0.5"/>
+            app:layout_constraintVertical_bias="0.5"
+            app:tint="#FFFFFF" />
 
         <TextView
             android:id="@+id/headerTitle"
@@ -103,9 +104,11 @@
                     android:id="@+id/parenttotalTv"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textAlignment="textEnd"
                     android:text="Rp.2000000"
                     android:textColor="@color/LightGrey"
                     android:textSize="14sp"
+                    android:paddingRight="20dp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"

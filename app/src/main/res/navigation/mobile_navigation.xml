@@ -64,9 +64,7 @@
             app:destination="@id/transactionFragment" />
 
         <!-- Action to ReceiptFragment -->
-        <action
-            android:id="@+id/action_cashierFragment_to_receiptFragment"
-            app:destination="@id/receiptFragment" />
+
 
         <!-- Action to RecordsFragment -->
         <action
@@ -104,7 +102,9 @@
     <fragment
         android:id="@+id/transactionFragment"
         android:name="com.dicoding.InsightCart.ui.Cashier.Transaction.TransactionFragment"
-        android:label="@string/Transaction" />
+        android:label="@string/Transaction" > <action
+        android:id="@+id/action_Transaction_to_receiptFragment"
+        app:destination="@id/receiptFragment" /></fragment>
 
 
 
